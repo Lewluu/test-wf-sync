@@ -1,0 +1,59 @@
+site_name: Markdown Documentation Template
+copyright: Copyright &copy; 2025 Analog Devices Inc. All Rights Reserved.
+repo_url: https://github.com/adi-innersource/harmonic-mkdocs
+edit_uri: tree/main/docs
+theme:
+  name: harmonic
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - content.tooltips
+    - content.code.copy
+
+extra:
+  version:
+    provider: mike
+
+extra_css:
+  - assets/templates/pdf_overrides.css
+
+plugins:
+  - glightbox
+  - material/search
+  - mike:
+      alias_type: copy
+  - print-site:
+      enabled: !ENV [ENABLE_PDF_EXPORT, false]
+      add_cover_page: true
+      enumerate_headings: false
+      print_page_title: AD71270
+      cover_page_template: "docs/assets/templates/cover_page.tpl"
+
+nav:
+  - Sample user guide:
+      - sample-user-guide/index.md
+      - Installation: sample-user-guide/installation.md
+      - Sample feature: sample-user-guide/sample-feature.md
+      - Admonitions: sample-user-guide/admonitions.md
+  - Sample release notes:
+      - sample-release-notes/index.md
+      - 0.0.0: sample-release-notes/0.0.0.md
+
+not_in_nav: |
+  glossary.md
+  index.md
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.snippets:
+      auto_append:
+        - docs/glossary.md
+  - pymdownx.details
+  - pymdownx.superfences

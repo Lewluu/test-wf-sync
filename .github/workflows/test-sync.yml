@@ -15,7 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
-              uses: actions/checkout-code@v5
+              uses: actions/checkout@v4
             - name: Log sync data
               shell: sh
               run: |
