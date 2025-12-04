@@ -4,11 +4,11 @@ description:
     'Testing sync output gathered from external resources. Data gathered is a log zip file.'
 
 on:
-    workflow_dispatch:
-        inputs:
-            logs-data:
-                type: string
-                required: true
+    pull_request:
+        branches:
+            - master
+        paths:
+            - ".github/workflows/test-sync.yml"
 
 jobs:
     test-sync:
@@ -16,13 +16,10 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
-            - name: Log sync data
+            - name: Test sync
               shell: sh
               run: |
-                echo "Logs URL: ${{ inputs.logs-data }}"
-                wget -v -O logs.zip ${{ inputs.logs-data }}
-                unzip logs.zip -d logs_sync
-                ll logs_sync
+                echo "Testing sync"
 
                 
                 
