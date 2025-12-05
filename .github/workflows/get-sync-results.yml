@@ -1,11 +1,16 @@
 name: Get sync results
 
+run-name: Get sync results - ${{ github.event.inputs.id }}
+
 description:
     'Testing sync output gathered from external resources. Data gathered is a log zip file.'
 
 on:
     workflow_dispatch:
         inputs:
+            id:
+              type: string
+              required: true
             logs-status:
                 type: string
                 required: true
