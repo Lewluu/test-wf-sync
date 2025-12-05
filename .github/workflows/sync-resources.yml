@@ -1,6 +1,6 @@
-name: Get sync results
+name: Sync resources
 
-run-name: Sync resources - ${{ github.event.inputs.command }} ${{ github.event.inputs.id }}
+run-name: Sync resources ${{ github.event.inputs.command }} ${{ github.event.inputs.id }}
 
 description:
     'Testing sync output gathered from external resources. Data gathered is a log zip file.'
