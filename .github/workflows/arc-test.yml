@@ -1,0 +1,16 @@
+name: Test arc setup
+
+description:
+  'Workflow to test local arc setup'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-arc:
+    runs-on: arc-runner-test
+    steps:
+      - name: Test created runner
+        shell: sh
+        run: |
+          echo "Runner working. Good job!"
